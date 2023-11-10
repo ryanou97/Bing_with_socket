@@ -6,7 +6,6 @@
 import random
 
 
-
 # 生成Bingo卡片
 def generate_bingo_card():
     
@@ -22,7 +21,6 @@ def generate_bingo_card():
 
 # 顯示Bingo卡片
 def print_bingo_card(card):
-    print(" B   I   N   G   O")
     
     for row in card:
         
@@ -52,21 +50,20 @@ def check_bingo(card):
     return False
 
 
+
 # 選出的牌換圈
-def check_choose(player_card, computer_card, choose_num):
+def check_choose(player1_card, player2_card, choose_num):
     
-    for row in player_card:
+    for row in player1_card:
         if choose_num in row:
             index = row.index(choose_num)
             row[index] = 0
     
-    for row in computer_card:
+    for row in player2_card:
         if choose_num in row:
             index = row.index(choose_num)
             row[index] = 0
 
-    print("您的Bingo卡片：")
-    print_bingo_card(player_card)
     
 
 # 主循環
@@ -76,47 +73,57 @@ def play_bingo():
     can_play_card = list(range(1, 26))
    
     # 亂數產生雙方的牌
-    player_card = generate_bingo_card()
-    computer_card = generate_bingo_card()
+    player1_card = generate_bingo_card()
+    player2_card = generate_bingo_card()
     
     print("歡迎B來玩ingo遊戲！")
-    print("您的Bingo卡片：")
-    print_bingo_card(player_card)
-
+    print("Player 1 卡片：")
+    print_bingo_card(player1_card)
+    print("\nPlayer 2 卡片：")
+    print_bingo_card(player2_card)
     
     while True:
         
-        # 玩家出牌
-        player_called_number = int(input("Player call number: "))
-        can_play_card.remove(player_called_number)
+        # player 1 出牌
+        print("\n------------------------------\n")
+        player1_called_number = int(input("Player call number 1: "))
+        can_play_card.remove(player1_called_number)
         
         
-        check_choose(player_card, computer_card, player_called_number)
+        check_choose(player1_card, player2_card, player1_called_number)
                 
+        print("player1 的Bingo卡片：")
+        print_bingo_card(player1_card)
+        print("\nplayer2 的Bingo卡片：")
+        print_bingo_card(player2_card)
         
-        if check_bingo(player_card):
+        if check_bingo(player1_card):
             print("恭喜！您獲得了Bingo！")
             break
         
-        if check_bingo(computer_card):
+        if check_bingo(player2_card):
             print("電腦獲勝！")
             break
         
     
-        # 電腦出牌
-        bot_called_number = random.choice(can_play_card)
-        can_play_card.remove(bot_called_number)
-        print(f"Bot call number: {bot_called_number}")
+        # player 2 出牌
+        print("\n------------------------------\n")
+        player2_called_number = int(input("Player call number 2: "))
+        can_play_card.remove(player2_called_number)
         
         
-        check_choose(player_card, computer_card, bot_called_number)
+        check_choose(player1_card, player2_card, player2_called_number)
         
+        print("player2 的Bingo卡片：")
+        print_bingo_card(player2_card)
+        print("player1 的Bingo卡片：")
+        print_bingo_card(player1_card)
         
-        if check_bingo(player_card):
+        if check_bingo(player1_card):
             print("恭喜！您獲得了Bingo！")
             break
         
-        if check_bingo(computer_card):
+        if check_bingo(player2_card):
             print("電腦獲勝！")
             break
 
