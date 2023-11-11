@@ -6,7 +6,7 @@
 
 ## 檔案
 
-- **socket_server.py**：做為server，負責管理遊戲邏輯、兩個客戶端之間的出牌溝通。
+- **socket_server.py**：做為 server，負責管理遊戲邏輯、兩個客戶端之間的出牌溝通。
 - **socket_client1.py**：玩家 1 連接到 server 以進行遊戲。
 - **socket_client2.py**：玩家 2 連接到 server 以進行遊戲。
 - **bingo_with_man.py**：包含生成 Bingo 卡片、顯示卡片、檢查 Bingo 連線和進行遊戲功能的module。
@@ -26,19 +26,19 @@
    ```
 
 ## 遊戲玩法
-開始時每位玩家會隨機分配到5*5的卡牌，並將牌組傳到server端。
-從client1開始先選擇號碼，接著換client2，被選到的號碼會以0表示，每次選號server也都會同步更新，直到先連成一條線者獲勝。
+開始時每位玩家會隨機分配到 5*5 的卡牌，並將牌組傳到server端。
+從 client1 開始先選擇號碼，接著換 client2，被選到的號碼會以0表示，每次選號 server 都會同步更新，直到先連成一條線者獲勝。
 
 
 ## 程式說明
-- serve可以看到雙方的卡牌變化進程，以防玩家在本地端作弊取勝。
-- 由server判定是否獲勝。
-- 其中用到 pickle 函式庫處理list的socket傳送
-   - 在client用以下函式將list序列化
+- server 可以看到雙方的卡牌變化進程，以防玩家在本地端作弊取勝。
+- 由 server 判定是否獲勝。
+- 其中用到 pickle 函式庫處理 list 的 socket 傳送
+   - 在 client 用以下函式將 list 序列化
    ```python
    serialized_data = pickle.dumps()
    ```
-   - 在server端收到msg後再返序列化
+   - 在 server 端收到 msg 後再返序列化
    ```python
    pickle.loads()
    ```
