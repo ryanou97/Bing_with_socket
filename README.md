@@ -7,9 +7,9 @@
 ## 檔案
 
 - **socket_server.py**：做為server，負責管理遊戲邏輯、兩個客戶端之間的出牌溝通。
-- **socket_client1.py**：玩家 1 的客戶端腳本，負責連接到伺服器並進行遊戲。
-- **socket_client2.py**：玩家 2 的客戶端腳本，與 client1.py 類似，連接到伺服器參與遊戲。
-- **bingo_with_man.py**：包含生成 Bingo 卡片、顯示卡片、檢查 Bingo 和進行遊戲的功能的模塊。
+- **socket_client1.py**：玩家 1 連接到 server 以進行遊戲。
+- **socket_client2.py**：玩家 2 連接到 server 以進行遊戲。
+- **bingo_with_man.py**：包含生成 Bingo 卡片、顯示卡片、檢查 Bingo 連線和進行遊戲功能的module。
 
 ## 執行方式
 
