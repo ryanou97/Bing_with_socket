@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: smile
+@author: ryanou97
 """
 import socket
 import threading
