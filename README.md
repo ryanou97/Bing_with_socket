@@ -10,7 +10,7 @@
 - **socket_client1.py**：玩家 1 連接到 server 以進行遊戲。
 - **socket_client2.py**：玩家 2 連接到 server 以進行遊戲。
 - **bingo_with_man.py**：包含生成 Bingo 卡片、顯示卡片、檢查 Bingo 連線和進行遊戲功能的module。
-- **bingo_with_bot_local.py**：與電腦對戰，電腦出牌維亂輸，獨立於其他腳本，僅用於初步構想。
+- **bingo_with_bot_local.py**：與電腦對戰，電腦出牌為亂輸選擇。獨立於其他腳本，僅用於初步構想。
 
 ## 執行方式
 
