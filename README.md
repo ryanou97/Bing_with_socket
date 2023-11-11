@@ -1,4 +1,4 @@
-# Bingo 遊戲 withsocket
+# Bingo 遊戲 with Socket
 
 ## 簡介
 
