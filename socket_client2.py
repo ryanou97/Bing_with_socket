@@ -17,18 +17,25 @@ def send_message(client_socket, client_id):
     while True:    
         
         try:
-            
+            # 第一次傳送自己卡牌
             if times == 1:
                 times = times + 1
                 serialized_data = pickle.dumps(player2_card)
                 client_socket.send(serialized_data)
            
             print("\nwaiting for player1...")
-                
             
             # waiting the msg from server
             server_message = client_socket.recv(1024).decode('utf-8')
-            print(f"Player1's card number: {server_message}")
+            
+            if server_message == 'player 1 win':
+                print("I lose the bingo")
+                break
+            elif server_message == 'player 2 win':
+                print("I am winner")
+                break
+            else:
+                print(f"Player1's card number: {server_message}")
             
             bingo_with_man.check_choose_v2(player2_card, int(server_message))
             
