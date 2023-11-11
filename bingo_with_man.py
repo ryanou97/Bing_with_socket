@@ -65,6 +65,14 @@ def check_choose(player1_card, player2_card, choose_num):
             row[index] = 0
 
     
+def check_choose_v2(player_card, choose_num):
+    
+    for row in player_card:
+        if choose_num in row:
+            index = row.index(choose_num)
+            row[index] = 0
+    
+
 
 # 主循環
 def play_bingo():
@@ -116,7 +124,7 @@ def play_bingo():
         
         print("player2 的Bingo卡片：")
         print_bingo_card(player2_card)
-        print("player1 的Bingo卡片：")
+        print("\nplayer1 的Bingo卡片：")
         print_bingo_card(player1_card)
         
         if check_bingo(player1_card):
